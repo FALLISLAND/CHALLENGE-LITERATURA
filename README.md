@@ -1,92 +1,46 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Challenge-Literartura</title>
-</head>
-<body>
-    <h1>Challenge-Literartura</h1>
+# Challenge-Literalura
 
-    <h2>Descripción del Proyecto</h2>
-    <p>
-        El proyecto <strong>Challenge-Literartura</strong> es una aplicación de consola desarrollada en Java utilizando <strong>Spring Boot</strong>.
-        Permite interactuar con la API de Gutendex para buscar y gestionar libros y autores. Entre sus características principales se encuentran:
-    </p>
-    <ul>
-        <li>Buscar libros por título y guardarlos en una base de datos.</li>
-        <li>Listar libros y autores registrados.</li>
-        <li>Listar autores vivos en un año específico.</li>
-        <li>Listar libros por idioma.</li>
-        <li>Interactuar a través de un menú en la consola.</li>
-    </ul>
+## LiterAlura-Challenge
 
-    <h2>Estructura del Proyecto</h2>
-    <pre>
-src/main/java
-├── com.seb.literartura.Challenge_literartura
-│   ├── AppConsole.java               # Clase principal para la interacción por consola
-│   ├── ChallengeLiteraluraApplication.java  # Clase principal de Spring Boot
-│   ├── domain                       # DTOs y clases de dominio
-│   ├── model                        # Modelos para la conversión de datos
-│   ├── repository                   # Interfaces de repositorios JPA
-│   ├── service                      # Servicios principales (LibroService, AutorService)
-│   └── provider                     # Clases auxiliares para consumo y conversión de datos
-    </pre>
+Este proyecto fue creado como parte de mi proceso de aprendizaje. El objetivo principal era integrar la API Gutendex y almacenar los resultados en una base de datos PostgreSQL. El enfoque del proyecto se centra en funcionalidades específicas que permiten realizar operaciones básicas de gestión de libros.
 
-    <h2>Tecnologías Utilizadas</h2>
-    <ul>
-        <li><strong>Java 17 o superior</strong></li>
-        <li><strong>Spring Boot 3.2</strong></li>
-        <li><strong>Spring Data JPA</strong></li>
-        <li><strong>PostgreSQL</strong></li>
-        <li><strong>Maven</strong></li>
-        <li><strong>Gutendex API</strong> (<a href="https://gutendex.com/">https://gutendex.com/</a>)</li>
-    </ul>
+---
 
-    <h2>Requisitos Previos</h2>
-    <ul>
-        <li><strong>JDK:</strong> Asegúrate de tener instalado JDK 17 o superior.</li>
-        <li><strong>PostgreSQL:</strong> Configura una base de datos PostgreSQL y anota las credenciales.</li>
-        <li><strong>Maven:</strong> Debes tener Maven configurado para compilar el proyecto.</li>
-    </ul>
+## Características
 
-    <h2>Configuración del Proyecto</h2>
-    <h3>Paso 1: Clonar el Repositorio</h3>
-    <pre>
-git clone https://github.com/tu-usuario/challenge-literartura.git
-cd challenge-literartura
-    </pre>
+El proyecto incluye las siguientes funcionalidades:
 
-    <h3>Paso 2: Configurar la Base de Datos</h3>
-    <p>Crea una base de datos PostgreSQL llamada <code>literatura</code> y anota las credenciales:</p>
-    <pre>
-CREATE DATABASE literatura;
-    </pre>
+- **Buscar Libro:** Permite buscar libros por título utilizando la API de Gutendex y guarda el primer resultado encontrado en la base de datos.
+- **Listar Libros:** Muestra por consola todos los libros guardados en la base de datos.
+- **Listar Autores:** Muestra por consola todos los autores guardados en la base de datos.
+- **Listar Autores vivos en determinado año:** Imprime por consola los autores que estaban vivos en un año específico, basado en la información almacenada en la base de datos.
+- **Listar Libros por Idioma:** Muestra en consola todos los libros que coinciden con el idioma buscado.
 
-    <h3>Paso 3: Configurar <code>application.properties</code></h3>
-    <p>Edita el archivo <code>src/main/resources/application.properties</code> con las credenciales de tu base de datos:</p>
-    <pre>
-spring.datasource.url=jdbc:postgresql://localhost:5432/literatura
-spring.datasource.username=tu_usuario
-spring.datasource.password=tu_contraseña
-spring.jpa.hibernate.ddl-auto=update
-spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
-    </pre>
+---
 
-    <h3>Paso 4: Compilar el Proyecto</h3>
-    <pre>
-mvn clean install
-    </pre>
+## Requisitos
 
-    <h3>Paso 5: Ejecutar la Aplicación</h3>
-    <pre>
-mvn spring-boot:run
-    </pre>
+Para ejecutar este proyecto, se requieren las siguientes tecnologías y herramientas:
 
-    <h2>Uso de la Aplicación</h2>
-    <p>Una vez iniciada, interactúa con la consola siguiendo las opciones del menú principal:</p>
-    <pre>
+1. **Java JDK:** Versión 17 o superior, disponible en [Download the Latest Java LTS](https://www.oracle.com/java/technologies/javase-downloads.html).
+2. **Maven:** Versión 4 o superior, para la gestión de dependencias y construcción del proyecto.
+3. **Spring Boot:** Versión 3.3.0, configurado a través de [Spring Initializr](https://start.spring.io/).
+4. **PostgreSQL:** Versión 14.12 o superior, como base de datos relacional. Configurado y conectado con SQL.
+5. **IDE:** Se recomienda IntelliJ IDEA, disponible en [JetBrains](https://www.jetbrains.com/idea/), para el desarrollo integrado del proyecto.
+
+---
+
+## Dependencias para agregar al crear el proyecto en Spring Initializr
+
+- **Spring Data JPA:** Para la integración con la capa de persistencia.
+- **PostgreSQL Driver:** Para la conexión con la base de datos PostgreSQL.
+- **Jackson:** Para el manejo de JSON.
+
+---
+
+## Menú Principal de la Aplicación
+
+```plaintext
 +++++++++++++++++++++++++++++++++++++++++++++++++++
 +++                Menú Principal               +++
 +++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -98,25 +52,32 @@ mvn spring-boot:run
 +++++++++++++++++++++++++++++++++++++++++++++++++++
 +   0- Salir                                     +
 +++++++++++++++++++++++++++++++++++++++++++++++++++
-    </pre>
 
-    <h2>Funcionalidades</h2>
-    <ol>
-        <li>
-            <strong>Buscar libro por título</strong>
-            <ul>
-                <li>Permite buscar un libro en la API de Gutendex.</li>
-                <li>Al encontrar el libro, lo guarda en la base de datos.</li>
-            </ul>
-        </li>
-        <li><strong>Listar libros registrados</strong></li>
-        <li><strong>Listar autores registrados</strong></li>
-        <li><strong>Listar autores vivos en un año</strong></li>
-        <li><strong>Listar libros por idioma</strong></li>
-    </ol>
+## Funcionalidades
 
-    <h2>Dependencias Principales</h2>
-    <pre>
+1. **Buscar libro por título**
+   - Permite buscar un libro en la API de Gutendex.
+   - Al encontrar el libro, lo guarda en la base de datos.
+
+2. **Listar libros registrados**
+   - Muestra todos los libros almacenados en la base de datos.
+
+3. **Listar autores registrados**
+   - Muestra todos los autores registrados en la base de datos.
+
+4. **Listar autores vivos en un año**
+   - Permite ingresar un año específico y muestra los autores que estaban vivos durante ese tiempo.
+
+5. **Listar libros por idioma**
+   - Muestra todos los libros que coinciden con el idioma buscado.
+
+---
+
+## Dependencias Principales
+
+Agrega las siguientes dependencias al archivo `pom.xml` al crear el proyecto en Spring Initializr:
+
+```xml
 <dependencies>
     <dependency>
         <groupId>org.springframework.boot</groupId>
@@ -131,6 +92,4 @@ mvn spring-boot:run
         <artifactId>postgresql</artifactId>
     </dependency>
 </dependencies>
-    </pre>
-</body>
-</html>
+
